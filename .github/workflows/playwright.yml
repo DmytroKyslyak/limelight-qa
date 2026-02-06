@@ -39,7 +39,7 @@ jobs:
       run: npx playwright test
       continue-on-error: true
 
-    # 1. Скачиваем историю из ветки gh-pages, где лежит ваш отчет
+    # 1. Забираем историю (теперь с защитой от ошибок)
     - name: Get Allure history
       uses: actions/checkout@v4
       if: always()
@@ -48,16 +48,16 @@ jobs:
         ref: gh-pages
         path: gh-pages
 
-    # 2. Генерируем новый отчет, подкладывая старую историю
+    # 2. Генерируем отчет через проверенный Action
     - name: Allure Report action from runner
       uses: simple-elf/allure-report-action@master
       if: always()
       with:
         allure_results: allure-results
         allure_history: allure-history
-        keep_reports: 20 # Сколько прошлых запусков хранить на графике
+        keep_reports: 20
 
-    # 3. Публикуем обновленный отчет с историей
+    # 3. Публикуем отчет обратно в ветку gh-pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       if: always()
