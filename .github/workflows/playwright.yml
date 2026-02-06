@@ -5,7 +5,7 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  workflow_dispatch: # Кнопка ручного запуска
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -37,38 +37,31 @@ jobs:
 
     - name: Run Playwright tests
       run: npx playwright test
-      continue-on-error: true # Чтобы отчет генерировался даже при падении тестов
-
-    # --- ВОТ ЭТОТ БЛОК ИСПРАВЛЯЕТ ГРАФИК TREND ---
-    - name: Get Allure history
-      uses: actions/checkout@v4
-      if: always()
       continue-on-error: true
-      with:
-        ref: gh-pages # Заглядываем в ветку, где лежит ваш сайт
-        path: gh-pages-dir
 
-    - name: Allure Report action from runner
-      if: always()
+    # --- ИСПРАВЛЕНИЕ ГРАФИКА TREND ---
+    # Мы скачиваем папку history из вашего уже работающего сайта
+    - name: Download Allure history
+      continue-on-error: true
       run: |
         mkdir -p allure-results/history
-        # Копируем историю из прошлого запуска в новые результаты
-        cp -R gh-pages-dir/history/* allure-results/history/ || true
-    # --------------------------------------------
+        curl -s https://dmytrokyslyak.github.io/limelight-qa/history/history.json -o allure-results/history/history.json
+        curl -s https://dmytrokyslyak.github.io/limelight-qa/history/duration-trend.json -o allure-results/history/duration-trend.json
+        curl -s https://dmytrokyslyak.github.io/limelight-qa/history/retry-trend.json -o allure-results/history/retry-trend.json
+        curl -s https://dmytrokyslyak.github.io/limelight-qa/history/categories-trend.json -o allure-results/history/categories-trend.json
+        curl -s https://dmytrokyslyak.github.io/limelight-qa/history/trends.json -o allure-results/history/trends.json
+    # ---------------------------------
 
     - name: Generate Allure Report
-      if: always()
       run: |
         npm install -g allure-commandline
         allure generate allure-results --clean -o allure-report
 
     - name: Upload Pages artifact
-      if: always()
       uses: actions/upload-pages-artifact@v3
       with:
         path: allure-report/
 
     - name: Deploy to GitHub Pages
-      if: always()
       id: deployment
-      uses: actions/deploy-pages@v4 # Публикация
+      uses: actions/deploy-pages@v4
