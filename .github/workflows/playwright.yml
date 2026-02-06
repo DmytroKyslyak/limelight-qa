@@ -5,9 +5,8 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  workflow_dispatch: # Кнопка для ручного запуска в Actions
+  workflow_dispatch:
 
-# Разрешения для публикации отчета на GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -19,12 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
 
-    # Настройка Java для генерации Allure-графиков
     - name: Setup Java
       uses: actions/setup-java@v3
       with:
@@ -39,26 +36,22 @@ jobs:
 
     - name: Run Playwright tests
       run: npx playwright test
-      continue-on-error: true # Позволяет собрать отчет, даже если тест на логотип "упал"
+      continue-on-error: true
 
-    # Генерация Allure отчета
     - name: Generate Allure Report
       run: |
         npm install -g allure-commandline
         allure generate allure-results --clean -o allure-report
 
-    # Загрузка отчета в облако GitHub для хостинга
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: allure-report/
 
-    # Публикация отчета на сайт
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
 
-    # Дополнительно: сохраняем отчет в архиве (на всякий случай)
     - name: Upload Reports Archive
       uses: actions/upload-artifact@v4
       if: always()
