@@ -5,7 +5,7 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  workflow_dispatch: # Кнопка для ручного запуска
+  workflow_dispatch: # Кнопка ручного запуска
 
 permissions:
   contents: write
@@ -37,42 +37,38 @@ jobs:
 
     - name: Run Playwright tests
       run: npx playwright test
-      continue-on-error: true # Позволяет генерировать отчет, даже если тесты упали
+      continue-on-error: true # Чтобы отчет генерировался даже при падении тестов
 
-    # --- РАБОТА С ИСТОРИЕЙ ALLURE ---
+    # --- ВОТ ЭТОТ БЛОК ИСПРАВЛЯЕТ ГРАФИК TREND ---
     - name: Get Allure history
       uses: actions/checkout@v4
       if: always()
       continue-on-error: true
       with:
-        ref: gh-pages # Забираем данные из ветки, где лежит прошлый отчет
+        ref: gh-pages # Заглядываем в ветку, где лежит ваш сайт
         path: gh-pages-dir
 
-    - name: Prepare Allure results
+    - name: Allure Report action from runner
+      if: always()
       run: |
         mkdir -p allure-results/history
+        # Копируем историю из прошлого запуска в новые результаты
         cp -R gh-pages-dir/history/* allure-results/history/ || true
-    # -------------------------------
+    # --------------------------------------------
 
     - name: Generate Allure Report
+      if: always()
       run: |
         npm install -g allure-commandline
         allure generate allure-results --clean -o allure-report
 
     - name: Upload Pages artifact
+      if: always()
       uses: actions/upload-pages-artifact@v3
       with:
         path: allure-report/
 
     - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4 # Публикация на сайт
-
-    - name: Upload Reports Archive
-      uses: actions/upload-artifact@v4
       if: always()
-      with:
-        name: playwright-allure-archive
-        path: |
-          playwright-report/
-          allure-report/
+      id: deployment
+      uses: actions/deploy-pages@v4 # Публикация
