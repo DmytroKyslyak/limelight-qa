@@ -1,41 +1,48 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test'; // ДОБАВЛЕН ИМПОРТ
+import dotenv from 'dotenv';
+import path from 'path';
 
 /**
- * See https://playwright.dev/docs/test-configuration.
+ * Читаем переменные окружения из .env файла.
+ * https://github.com/motdotla/dotenv
  */
+dotenv.config({ path: path.resolve(__dirname, '.env') });
+
 export default defineConfig({
   testDir: './tests',
-  /* Run tests in files in parallel */
+  /* Запускать тесты в файлах параллельно */
   fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
+  /* Остановить билд на CI, если в коде остался test.only */
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
+  /* Рестарт тестов только на CI */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
+  /* Ограничение воркеров на CI для стабильности */
   workers: process.env.CI ? 1 : undefined,
 
-  /* * Unified Reporter Configuration 
-   * Combining HTML and Allure into one array
-   */
+  /* Настройка репортеров: HTML и Allure */
   reporter: [
     ['html'], 
     ['allure-playwright', { outputFolder: 'allure-results' }]
   ],
 
-  /* Shared settings for all projects */
+  /* Общие настройки для всех проектов */
   use: {
-    /* Collect trace when retrying. You can set this to 'on' to record every run */
+    /* Базовый URL теперь можно не хардкодить, а брать из env */
+    baseURL: process.env.APP_PORTAL_URL,
+    
+    /* Собирать трейсы при первой неудаче */
     trace: 'on-first-retry',
-    /* Useful for debugging: record video for failed tests */
+    /* Записывать видео для упавших тестов */
     video: 'on-first-retry',
+    /* Скриншоты при падении */
+    screenshot: 'only-on-failure',
   },
 
-  /* Configure projects for major browsers */
+  /* Конфигурация браузеров */
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-    // Firefox and Webkit are commented out to save time during CI runs
   ],
 });

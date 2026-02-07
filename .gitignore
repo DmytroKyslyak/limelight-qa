@@ -1,12 +1,26 @@
 
-# Playwright
+# Dependency directories
 node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
+
+# Playwright outputs
+test-results/
+playwright-report/
+blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Allure reports
 allure-results/
 allure-report/
-playwright-report/
-test-results/
+
+# Environment variables
+.env
+
+# Test artifacts
+*.png
+*.jpg
+*.webm
+
+# System files
+.DS_Store
+Thumbs.db

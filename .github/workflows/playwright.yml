@@ -39,7 +39,11 @@ jobs:
       run: rm -rf allure-results && mkdir -p allure-results
 
     - name: Run Playwright tests
+      # ДОБАВЛЕН БЛОК ENV ДЛЯ ПЕРЕДАЧИ СЕКРЕТОВ
       run: npx playwright test
+      env:
+        APP_PORTAL_URL: ${{ secrets.APP_PORTAL_URL }}
+        PROMO_SITE_URL: ${{ secrets.PROMO_SITE_URL }}
       continue-on-error: true
 
     # Создаем информацию о запуске для графика трендов
@@ -57,7 +61,7 @@ jobs:
         allure_history: allure-history
         keep_reports: 20
 
-    # Публикация в ветку gh-pages (теперь без ошибок git push)
+    # Публикация в ветку gh-pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       if: always()
