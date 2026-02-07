@@ -1,3 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","1813","Negative login test for Limelight Platform","chromium","Sat Feb 07 18:07:29 UTC 2026","passed","Sat Feb 07 18:07:31 UTC 2026","","login.spec.ts","",""
-"","6243","Verify logo redirects to the homepage","chromium","Sat Feb 07 18:07:47 UTC 2026","failed","Sat Feb 07 18:07:53 UTC 2026","","LOGO_limelight.spec.ts","",""

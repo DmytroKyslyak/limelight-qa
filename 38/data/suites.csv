@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1503","Login attempt with: Suspicious email pattern","chromium","Sat Feb 07 18:38:17 UTC 2026","passed","Sat Feb 07 18:38:19 UTC 2026","DDT: Login Field Validation","limelight/auth-ddt.spec.ts","",""
+"","1534","Login attempt with: Invalid email format","chromium","Sat Feb 07 18:38:16 UTC 2026","passed","Sat Feb 07 18:38:17 UTC 2026","DDT: Login Field Validation","limelight/auth-ddt.spec.ts","",""
+"","1760","Login attempt with: Non-existent user","chromium","Sat Feb 07 18:38:13 UTC 2026","passed","Sat Feb 07 18:38:15 UTC 2026","DDT: Login Field Validation","limelight/auth-ddt.spec.ts","",""
+"","1566","Negative login test for Limelight Platform","chromium","Sat Feb 07 18:38:19 UTC 2026","passed","Sat Feb 07 18:38:20 UTC 2026","","limelight/login.spec.ts","",""
+"","6316","Verify logo redirects to the homepage","chromium","Sat Feb 07 18:38:37 UTC 2026","failed","Sat Feb 07 18:38:43 UTC 2026","","promo-site/header.spec.ts","",""
