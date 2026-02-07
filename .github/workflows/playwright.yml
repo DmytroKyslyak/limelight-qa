@@ -71,3 +71,14 @@ jobs:
       if: always()
       id: deployment
       uses: actions/deploy-pages@v4
+
+    - name: Download Allure history
+        continue-on-error: true
+        run: |
+          mkdir -p allure-results/history
+          URL="https://dmytrokyslyak.github.io/limelight-qa/history"
+          curl -s $URL/history.json -o allure-results/history/history.json
+          curl -s $URL/trends.json -o allure-results/history/trends.json
+          curl -s $URL/duration-trend.json -o allure-results/history/duration-trend.json
+          curl -s $URL/categories-trend.json -o allure-results/history/categories-trend.json
+          curl -s $URL/retry-trend.json -o allure-results/history/retry-trend.json
