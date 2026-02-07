@@ -39,20 +39,17 @@ jobs:
       run: rm -rf allure-results && mkdir -p allure-results
 
     - name: Run Playwright tests
-      # ВАЖНО: Этот блок передает секреты из настроек GitHub в ваш код
       run: npx playwright test
       env:
         APP_PORTAL_URL: ${{ secrets.APP_PORTAL_URL }}
         PROMO_SITE_URL: ${{ secrets.PROMO_SITE_URL }}
       continue-on-error: true
 
-    # Создаем информацию о запуске для графика трендов
     - name: Create Executor info
       if: always()
       run: |
         echo '{"name":"GitHub Actions","type":"github","buildOrder":"${{ github.run_number }}","buildName":"Build #${{ github.run_number }}","buildUrl":"https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' > allure-results/executor.json
 
-    # Собираем Allure отчет и подключаем историю
     - name: Allure Report action from runner
       uses: simple-elf/allure-report-action@master
       if: always()
@@ -61,11 +58,19 @@ jobs:
         allure_history: allure-history
         keep_reports: 20
 
-    # Публикуем отчет в GitHub Pages
+    # ПУБЛИКАЦИЯ В УНИКАЛЬНУЮ ПАПКУ
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       if: always()
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: allure-history
+        destination_dir: reports/${{ github.run_number }} # Создает папку reports/46, reports/47 и т.д.
         publish_branch: gh-pages
+
+    # ВЫВОД ССЫЛКИ В КОНСОЛЬ ДЛЯ УДОБСТВА
+    - name: Output Report Link
+      if: always()
+      run: |
+        echo "Отчет для текущего запуска будет доступен здесь:"
+        echo "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/reports/${{ github.run_number }}/index.html"
