@@ -1,0 +1,1 @@
+[{"uid":"cc87fe757da8880a","name":"Negative login test for Limelight Platform","time":{"start":1770487025793,"stop":1770487026831,"duration":1038},"status":"passed","severity":"normal"},{"uid":"4f1978b572b839fa","name":"Verify logo redirects to the homepage","time":{"start":1770487042633,"stop":1770487048819,"duration":6186},"status":"failed","severity":"normal"}]
