@@ -35,6 +35,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
+    # 1. Очистка и создание структуры
     - name: Clear old results
       run: rm -rf allure-results && mkdir -p allure-results/history
 
@@ -42,6 +43,7 @@ jobs:
       run: npx playwright test
       continue-on-error: true
 
+    # 2. Скачивание истории из интернета (с вашего же сайта)
     - name: Download Allure history
       continue-on-error: true
       run: |
@@ -51,6 +53,11 @@ jobs:
         curl -s $URL/duration-trend.json -o allure-results/history/duration-trend.json
         curl -s $URL/categories-trend.json -o allure-results/history/categories-trend.json
         curl -s $URL/retry-trend.json -o allure-results/history/retry-trend.json
+
+    # 3. ТОТ САМЫЙ ШАГ: Создаем "паспорт" запуска для графика
+    - name: Create Executor info
+      run: |
+        echo '{"name":"GitHub Actions","type":"github","buildOrder":"${{ github.run_number }}","buildName":"Build #${{ github.run_number }}","buildUrl":"https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' > allure-results/executor.json
 
     - name: Generate Allure Report
       if: always()
