@@ -65,11 +65,11 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: allure-history
         publish_branch: gh-pages
-        # ВАЖНО: сохраняем старые папки билдов в ветке gh-pages
+        # Это не даст удалять старые отчеты при деплое новых
         keep_files: true
 
     - name: Output Report Link
       if: always()
       run: |
-        echo "Отчет для текущего запуска (Build #${{ github.run_number }}) доступен по ссылке:"
-        echo "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }
+        echo "Отчет для этого запуска доступен здесь:"
+        echo "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ github.run_number }}/index.html"
