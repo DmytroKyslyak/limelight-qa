@@ -35,17 +35,25 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
+    # ОЧИСТКА: Удаляем старые результаты, которые могли прийти из репозитория
+    - name: Clear old results
+      run: rm -rf allure-results && mkdir allure-results
+
     - name: Run Playwright tests
       run: npx playwright test
       continue-on-error: true
 
-    # Стягиваем историю из текущей публикации, если она есть
+    # Стягиваем ПОЛНУЮ историю для графика Trend
     - name: Download Allure history
       continue-on-error: true
       run: |
         mkdir -p allure-results/history
-        curl -s https://dmytrokyslyak.github.io/limelight-qa/history/history.json -o allure-results/history/history.json
-        curl -s https://dmytrokyslyak.github.io/limelight-qa/history/trends.json -o allure-results/history/trends.json
+        URL="https://dmytrokyslyak.github.io/limelight-qa/history"
+        curl -s $URL/history.json -o allure-results/history/history.json
+        curl -s $URL/duration-trend.json -o allure-results/history/duration-trend.json
+        curl -s $URL/retry-trend.json -o allure-results/history/retry-trend.json
+        curl -s $URL/categories-trend.json -o allure-results/history/categories-trend.json
+        curl -s $URL/trends.json -o allure-results/history/trends.json
 
     - name: Generate Allure Report
       if: always()
@@ -53,7 +61,6 @@ jobs:
         npm install -g allure-commandline
         allure generate allure-results --clean -o allure-report
 
-    # Используем официальный метод загрузки артефакта для Pages
     - name: Upload Pages artifact
       if: always()
       uses: actions/upload-pages-artifact@v3
