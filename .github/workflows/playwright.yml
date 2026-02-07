@@ -35,25 +35,22 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    # ОЧИСТКА: Удаляем старые результаты, которые могли прийти из репозитория
     - name: Clear old results
-      run: rm -rf allure-results && mkdir allure-results
+      run: rm -rf allure-results && mkdir -p allure-results/history
 
     - name: Run Playwright tests
       run: npx playwright test
       continue-on-error: true
 
-    # Стягиваем ПОЛНУЮ историю для графика Trend
     - name: Download Allure history
       continue-on-error: true
       run: |
-        mkdir -p allure-results/history
         URL="https://dmytrokyslyak.github.io/limelight-qa/history"
         curl -s $URL/history.json -o allure-results/history/history.json
-        curl -s $URL/duration-trend.json -o allure-results/history/duration-trend.json
-        curl -s $URL/retry-trend.json -o allure-results/history/retry-trend.json
-        curl -s $URL/categories-trend.json -o allure-results/history/categories-trend.json
         curl -s $URL/trends.json -o allure-results/history/trends.json
+        curl -s $URL/duration-trend.json -o allure-results/history/duration-trend.json
+        curl -s $URL/categories-trend.json -o allure-results/history/categories-trend.json
+        curl -s $URL/retry-trend.json -o allure-results/history/retry-trend.json
 
     - name: Generate Allure Report
       if: always()
@@ -71,14 +68,3 @@ jobs:
       if: always()
       id: deployment
       uses: actions/deploy-pages@v4
-
-    - name: Download Allure history
-        continue-on-error: true
-        run: |
-          mkdir -p allure-results/history
-          URL="https://dmytrokyslyak.github.io/limelight-qa/history"
-          curl -s $URL/history.json -o allure-results/history/history.json
-          curl -s $URL/trends.json -o allure-results/history/trends.json
-          curl -s $URL/duration-trend.json -o allure-results/history/duration-trend.json
-          curl -s $URL/categories-trend.json -o allure-results/history/categories-trend.json
-          curl -s $URL/retry-trend.json -o allure-results/history/retry-trend.json
