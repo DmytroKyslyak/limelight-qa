@@ -39,7 +39,7 @@ jobs:
       run: rm -rf allure-results && mkdir -p allure-results
 
     - name: Run Playwright tests
-      # ДОБАВЛЕН БЛОК ENV ДЛЯ ПЕРЕДАЧИ СЕКРЕТОВ
+      # ВАЖНО: Этот блок передает секреты из настроек GitHub в ваш код
       run: npx playwright test
       env:
         APP_PORTAL_URL: ${{ secrets.APP_PORTAL_URL }}
@@ -52,7 +52,7 @@ jobs:
       run: |
         echo '{"name":"GitHub Actions","type":"github","buildOrder":"${{ github.run_number }}","buildName":"Build #${{ github.run_number }}","buildUrl":"https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' > allure-results/executor.json
 
-    # Автоматическая магия: скачивает историю, генерирует отчет и готовит деплой
+    # Собираем Allure отчет и подключаем историю
     - name: Allure Report action from runner
       uses: simple-elf/allure-report-action@master
       if: always()
@@ -61,7 +61,7 @@ jobs:
         allure_history: allure-history
         keep_reports: 20
 
-    # Публикация в ветку gh-pages
+    # Публикуем отчет в GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       if: always()
