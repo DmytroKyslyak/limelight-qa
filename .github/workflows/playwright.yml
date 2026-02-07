@@ -35,7 +35,6 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    # Очистка локальных результатов перед тестами
     - name: Clear old results
       run: rm -rf allure-results && mkdir -p allure-results
 
@@ -49,17 +48,8 @@ jobs:
       run: |
         echo '{"name":"GitHub Actions","type":"github","buildOrder":"${{ github.run_number }}","buildName":"Build #${{ github.run_number }}","buildUrl":"https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' > allure-results/executor.json
 
-    # Загружаем историю из ветки gh-pages
-    - name: Load Allure history
-      uses: actions/checkout@v4
-      if: always()
-      continue-on-error: true
-      with:
-        ref: gh-pages
-        path: gh-pages
-
-    # Генерируем отчет, объединяя результаты и историю
-    - name: Build Allure Report
+    # Автоматическая магия: скачивает историю, генерирует отчет и готовит деплой
+    - name: Allure Report action from runner
       uses: simple-elf/allure-report-action@master
       if: always()
       with:
@@ -67,7 +57,7 @@ jobs:
         allure_history: allure-history
         keep_reports: 20
 
-    # Публикуем обновленный отчет и историю в ветку gh-pages
+    # Публикация в ветку gh-pages (теперь без ошибок git push)
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       if: always()
