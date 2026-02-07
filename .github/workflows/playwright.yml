@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ main, master ]
   workflow_dispatch:
+    inputs:
+      test_file:
+        description: 'Путь к файлу теста (например: tests/login.spec.ts). Оставьте пустым для запуска всех.'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -39,7 +44,8 @@ jobs:
       run: rm -rf allure-results && mkdir -p allure-results
 
     - name: Run Playwright tests
-      run: npx playwright test
+      # Добавлена поддержка запуска конкретного файла через переменную
+      run: npx playwright test ${{ github.event.inputs.test_file }}
       env:
         APP_PORTAL_URL: ${{ secrets.APP_PORTAL_URL }}
         PROMO_SITE_URL: ${{ secrets.PROMO_SITE_URL }}
@@ -65,8 +71,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: allure-history
         publish_branch: gh-pages
-        # Это не даст удалять старые отчеты при деплое новых
-        keep_files: true
+        keep_files: true # Чтобы билд 53 не удалял билд 52
 
     - name: Output Report Link
       if: always()
