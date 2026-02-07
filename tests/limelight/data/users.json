@@ -1,0 +1,5 @@
+[
+  { "email": "non-existent@test.com", "description": "Non-existent user" },
+  { "email": "invalid-format@com", "description": "Invalid email format" },
+  { "email": "sql-injection@test.com", "description": "Suspicious email pattern" }
+]
