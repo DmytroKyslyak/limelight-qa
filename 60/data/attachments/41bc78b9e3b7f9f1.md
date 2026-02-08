@@ -1,0 +1,247 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - paragraph [ref=e5]: This website stores cookies on your computer. These cookies are used to collect information about how you interact with our website and allow us to remember you. We use this information in order to improve and customize your browsing experience and for analytics and metrics about our visitors both on this website and other media. To find out more about the cookies we use, see our Privacy Policy
+    - paragraph [ref=e6]: If you decline, your information won’t be tracked when you visit this website. A single cookie will be used in your browser to remember your preference not to be tracked.
+    - generic [ref=e8]:
+      - button "Accept" [ref=e9] [cursor=pointer]
+      - button "Decline" [ref=e10] [cursor=pointer]
+  - generic [ref=e11]:
+    - banner [ref=e12]:
+      - link "limelight-logo-full-color" [ref=e16] [cursor=pointer]:
+        - /url: javascript:void(0)
+        - img "limelight-logo-full-color" [ref=e17]
+    - main [ref=e18]:
+      - generic [ref=e22]:
+        - generic [ref=e28]:
+          - generic [ref=e34]:
+            - generic [ref=e35]:
+              - img "lightening-icon-01" [ref=e36]
+              - generic [ref=e37]: Interactive Tour
+            - 'heading "Fast, Powerful, Finance-First: Take a Tour of Limelight" [level=1] [ref=e39]':
+              - strong [ref=e41]: "Fast, Powerful, Finance-First: Take a Tour of Limelight"
+          - generic [ref=e46]:
+            - iframe [ref=e51]:
+              - generic [active] [ref=f1e1]:
+                - generic [ref=f1e6]:
+                  - img [ref=f1e12] [cursor=pointer]
+                  - generic [ref=f1e16]:
+                    - generic [ref=f1e17]:
+                      - img "demo-image-https://app-pages.storylane.io/company/company_45c7fa23-704c-425d-a962-d2e3fbc80108/project/project_9ddf62e3-4458-4e9a-8f37-610798c4c149/page/r0n3inf3jpb59whxvmtswupscf80.png" [ref=f1e18]
+                      - img "demo-image-https://app-pages.storylane.io/company/company_45c7fa23-704c-425d-a962-d2e3fbc80108/project/project_9ddf62e3-4458-4e9a-8f37-610798c4c149/page/c9o4a7dswo589cmzdmq01i7eb7ha.png" [ref=f1e19]
+                    - dialog "Step dialog" [ref=f1e20]:
+                      - generic [ref=f1e25]:
+                        - heading "Welcome to Limelight!" [level=2] [ref=f1e26]:
+                          - strong [ref=f1e27]: Welcome to Limelight!
+                        - paragraph [ref=f1e28]
+                      - button "Start Tour" [ref=f1e32] [cursor=pointer]:
+                        - generic [ref=f1e33]: Start Tour
+                      - generic [ref=f1e34]:
+                        - text: Made with
+                        - link "Storylane" [ref=f1e35] [cursor=pointer]:
+                          - /url: https://app.storylane.io/sign-up?utm_source=product&utm_medium=in-app&utm_campaign=made-with-storylane-text
+                          - img [ref=f1e36]
+                          - generic [ref=f1e38]: Storylane
+                - alert [ref=f1e41]
+            - paragraph [ref=e52]
+        - generic [ref=e55]:
+          - generic [ref=e57]:
+            - generic [ref=e65]:
+              - heading "Ready for the Next Step?" [level=2] [ref=e66]
+              - paragraph [ref=e67]: Want to see more impactful features in action? Schedule a demo for a tailored walkthrough and get answers to your specific questions.
+            - img "Opex Integration SS for Website" [ref=e74]
+          - link "BOOK DEMO" [ref=e82] [cursor=pointer]:
+            - /url: https://www.golimelight.com/demo
+            - text: BOOK DEMO
+            - img [ref=e83]
+        - generic [ref=e91]:
+          - heading "Trusted by Finance Leaders for Proven FP&A Results" [level=2] [ref=e99]
+          - generic [ref=e108]:
+            - img "logo-slider-1" [ref=e111]
+            - img "logo-slider-2" [ref=e114]
+            - img "logo-slider-3" [ref=e117]
+            - img "logo-slider-4" [ref=e120]
+            - img "logo-slider-1" [ref=e123]
+            - img "logo-slider-2" [ref=e126]
+            - img "logo-slider-3" [ref=e129]
+            - img "logo-slider-4" [ref=e132]
+            - img "logo-slider-1" [ref=e135]
+            - img "logo-slider-2" [ref=e138]
+            - img "logo-slider-3" [ref=e141]
+            - img "logo-slider-4" [ref=e144]
+        - generic [ref=e147]:
+          - generic [ref=e154]:
+            - heading "See why life's good in the limelight" [level=2] [ref=e155]
+            - paragraph [ref=e156]: What can Limelight do for you? Let us show you firsthand.
+          - link "BOOK YOUR DEMO" [ref=e164] [cursor=pointer]:
+            - /url: https://www.golimelight.com/demo
+            - text: BOOK YOUR DEMO
+            - img [ref=e165]
+    - contentinfo [ref=e167]:
+      - generic [ref=e169]:
+        - generic [ref=e170]:
+          - generic [ref=e171]:
+            - link "limelight-logo-full-color" [ref=e172] [cursor=pointer]:
+              - /url: https://www.golimelight.com/
+              - img "limelight-logo-full-color" [ref=e173]
+            - generic [ref=e174]:
+              - link "hello@golimelight.com" [ref=e175] [cursor=pointer]:
+                - /url: mailto:hello@golimelight.com
+              - generic [ref=e176]:
+                - text: "Tel:"
+                - link "+1 (877) 931-9292" [ref=e177] [cursor=pointer]:
+                  - /url: tel:+1%20(877)%20931-9292
+              - generic [ref=e178]:
+                - text: "Fax:"
+                - link "+1 (647) 931-9292" [ref=e179] [cursor=pointer]:
+                  - /url: tel:+1%20(647)%20931-9292
+            - generic [ref=e180]:
+              - img "badge-high-performer-g2" [ref=e182]
+              - img "badge-top-performer-gartner insights" [ref=e184]
+              - img "badge-soc2-compliance" [ref=e186]
+          - generic [ref=e187]:
+            - generic [ref=e188]:
+              - generic [ref=e189]: Platform
+              - list [ref=e190]:
+                - listitem [ref=e191]:
+                  - link "Modeling" [ref=e192] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/financial-modeling
+                - listitem [ref=e193]:
+                  - link "Planning & Forecasting" [ref=e194] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/capabilities/planning-and-forecasting
+                - listitem [ref=e195]:
+                  - link "Workforce Planning" [ref=e196] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/capabilities/workforce-planning
+                - listitem [ref=e197]:
+                  - link "Reporting" [ref=e198] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/capabilities/financial-reporting
+                - listitem [ref=e199]:
+                  - link "Dashboards" [ref=e200] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/capabilities/interactive-dashboards
+            - generic [ref=e201]:
+              - generic [ref=e202]: Integrations
+              - list [ref=e203]:
+                - listitem [ref=e204]:
+                  - link "Sage Intacct" [ref=e205] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/integrations/sage-intacct
+                - listitem [ref=e206]:
+                  - link "Oracle NetSuite" [ref=e207] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/integrations/netsuite
+                - listitem [ref=e208]:
+                  - link "Microsoft Dynamics" [ref=e209] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/integrations/microsoft-dynamics
+                - listitem [ref=e210]:
+                  - link "All Integrations" [ref=e211] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/integrations
+            - generic [ref=e212]:
+              - generic [ref=e213]: Industries
+              - list [ref=e214]:
+                - listitem [ref=e215]:
+                  - link "Non-Profit" [ref=e216] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/industries/non-profit
+                - listitem [ref=e217]:
+                  - link "SaaS" [ref=e218] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/industries/saas
+                - listitem [ref=e219]:
+                  - link "Higher Education" [ref=e220] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/industries/higher-education
+                - listitem [ref=e221]:
+                  - link "Business Services" [ref=e222] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/industries/professional-services
+                - listitem [ref=e223]:
+                  - link "Manufacturing" [ref=e224] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/industries/manufacturing
+                - listitem [ref=e225]:
+                  - link "Healthcare" [ref=e226] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/industries/healthcare
+                - listitem [ref=e227]:
+                  - link "All Industries" [ref=e228] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/industry-page
+            - generic [ref=e229]:
+              - generic [ref=e230]: Learn
+              - list [ref=e231]:
+                - listitem [ref=e232]:
+                  - link "Book a Call" [ref=e233] [cursor=pointer]:
+                    - /url: https://meetings.hubspot.com/inderseth/demo-request
+                - listitem [ref=e234]:
+                  - link "Product Demo" [ref=e235] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/videos
+                - listitem [ref=e236]:
+                  - link "Cash Flow Forecasting" [ref=e237] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/effective-cash-flow-management
+                - listitem [ref=e238]:
+                  - link "Ready-to-Go FP&A Templates" [ref=e239] [cursor=pointer]:
+                    - /url: https://info.golimelight.com/-webinar-ready-to-go-templates
+                - listitem [ref=e240]:
+                  - link "Limelight vs Excel" [ref=e241] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/all-in-one-planning
+                - listitem [ref=e242]:
+                  - link "Optimize Headcount Costs" [ref=e243] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/hubfs/Limelight%20Marketing%20Materials/Brochures%20and%20Data%20Sheets/Limelight%20Software%20Headcount%20Planning%20Brochure.pdf
+            - generic [ref=e244]:
+              - generic [ref=e245]: Compare
+              - list [ref=e246]:
+                - listitem [ref=e247]:
+                  - link "Limelight vs. Vena" [ref=e248] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/vena
+                - listitem [ref=e249]:
+                  - link "Limelight vs. Prophix" [ref=e250] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/prophix
+                - listitem [ref=e251]:
+                  - link "Limelight vs. Adaptive" [ref=e252] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/adaptive
+                - listitem [ref=e253]:
+                  - link "Limelight vs. NetSuite Planning" [ref=e254] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/nspb
+                - listitem [ref=e255]:
+                  - link "Limelight vs. Cube" [ref=e256] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/cube
+                - listitem [ref=e257]:
+                  - link "Limelight vs. Datarails" [ref=e258] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/datarails
+            - generic [ref=e259]:
+              - generic [ref=e260]: Company
+              - list [ref=e261]:
+                - listitem [ref=e262]:
+                  - link "Who We Are" [ref=e263] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/company
+                - listitem [ref=e264]:
+                  - link "Careers" [ref=e265] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/life-at-limelight
+                - listitem [ref=e266]:
+                  - link "Become a Partner" [ref=e267] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/partnerships
+                - listitem [ref=e268]:
+                  - link "Security" [ref=e269] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/it-security
+                - listitem [ref=e270]:
+                  - link "FP&A Glossary" [ref=e271] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/fpa-glossary
+                - listitem [ref=e272]:
+                  - link "Privacy Policy" [ref=e273] [cursor=pointer]:
+                    - /url: https://www.golimelight.com/privacy-policy
+        - generic [ref=e274]:
+          - generic [ref=e275]: Copyright © 2026 Limelight Software
+          - generic [ref=e276]:
+            - link [ref=e277] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/limelightsoftware/
+              - img [ref=e279]
+            - link "G-2 white logo" [ref=e282] [cursor=pointer]:
+              - /url: https://www.g2.com/products/limelight-2020-04-15/reviews
+              - img "G-2 white logo" [ref=e283]
+            - link "limelight-capterra-logo" [ref=e284] [cursor=pointer]:
+              - /url: https://www.capterra.ca/software/165603/limelight
+              - img "limelight-capterra-logo" [ref=e285]
+  - region "Chat Widget" [ref=e286]:
+    - iframe [ref=e287]:
+      - generic [ref=f7e2]:
+        - button "Close welcome page" [ref=f7e3]:
+          - img [ref=f7e5]
+        - button "Open live chat" [ref=f7e10] [cursor=pointer]:
+          - generic [ref=f7e11]:
+            - img [ref=f7e13]
+            - generic [ref=f7e18]: Ask me anything…
+          - img [ref=f7e20]
+```

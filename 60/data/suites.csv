@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1585","Scenario: Unauthorized login attempt - Invalid email format","chromium","Sun Feb 08 16:23:50 UTC 2026","passed","Sun Feb 08 16:23:52 UTC 2026","Enterprise Portal: Authentication Scenarios","enterprise-app/auth-ddt.spec.ts","",""
+"","2986","Scenario: From contactUs page, logo should link to Home","chromium","Sun Feb 08 16:23:54 UTC 2026","passed","Sun Feb 08 16:23:57 UTC 2026","Marketing Site: Header Logo Navigation","marketing-site/header.spec.ts","",""
+"","3089","Scenario: From aboutUs page, logo should link to Home","chromium","Sun Feb 08 16:23:54 UTC 2026","passed","Sun Feb 08 16:23:57 UTC 2026","Marketing Site: Header Logo Navigation","marketing-site/header.spec.ts","",""
+"","30306","Scenario: From tour page, logo should link to Home","chromium","Sun Feb 08 16:23:57 UTC 2026","failed","Sun Feb 08 16:24:27 UTC 2026","Marketing Site: Header Logo Navigation","marketing-site/header.spec.ts","",""
+"","1260","Scenario: Unauthorized login attempt - Suspicious email pattern","chromium","Sun Feb 08 16:23:53 UTC 2026","passed","Sun Feb 08 16:23:54 UTC 2026","Enterprise Portal: Authentication Scenarios","enterprise-app/auth-ddt.spec.ts","",""
+"","1510","Scenario: Unauthorized login attempt - Non-existent user","chromium","Sun Feb 08 16:23:50 UTC 2026","passed","Sun Feb 08 16:23:52 UTC 2026","Enterprise Portal: Authentication Scenarios","enterprise-app/auth-ddt.spec.ts","",""
+"","1227","Negative login validation for Corporate Portal","chromium","Sun Feb 08 16:23:53 UTC 2026","passed","Sun Feb 08 16:23:54 UTC 2026","","enterprise-app/login.spec.ts","",""
